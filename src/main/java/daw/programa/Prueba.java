@@ -4,6 +4,7 @@
  */
 package daw.programa;
 
+import clasesENum.EstadoAnimal;
 import daw.fernando.Animal;
 import daw.fernando.Persona;
 import java.time.LocalDate;
@@ -20,12 +21,12 @@ public class Prueba {
         //Creacion animal 1
         Animal a1 = new Animal(LocalDate.of(2007, 
                 Month.DECEMBER, 25), "Garfield", 
-                "Gato", 3000.0, "Durmiendo");
+                "Gato", 3000.0, EstadoAnimal.DESPIERTO);
         
         //Creacion animal 2
         Animal a2 = new Animal(LocalDate.of(2000, 
                 Month.MARCH, 17), "Tobi", 
-                "Perro", 6000.0, "Despierto");
+                "Perro", 6000.0, EstadoAnimal.DESPIERTO);
         
         //Creacion persona 1 y 2
         Persona p1 = new Persona("Pepe", 38);

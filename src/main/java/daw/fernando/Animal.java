@@ -1,5 +1,6 @@
 package daw.fernando;
 
+import clasesENum.EstadoAnimal;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -10,11 +11,11 @@ public class Animal {
     private String nombre;
     private String tipo; //gato , perro , lagarto , cobaya , periquito
     private double peso; //en gramos
-    private String estado; //comiendo durmiendo despierto/reposo o jugando
+    private EstadoAnimal estado; //comiendo durmiendo despierto/reposo o jugando
 
-    //CONSTRUCTORES
-    public Animal(LocalDate FechaNacimiento, String nombre, String tipo, double peso, String estado) {
-        this.fechaNacimiento = FechaNacimiento;
+    //CONSTRUCTORES 
+    public Animal(LocalDate fechaNacimiento, String nombre, String tipo, double peso, EstadoAnimal estado) {
+        this.fechaNacimiento = fechaNacimiento;
         this.nombre = nombre;
         this.tipo = tipo;
         this.peso = peso;
@@ -25,12 +26,12 @@ public class Animal {
     }
 
     //METODOS SETTERS Y GETTERS
-    public LocalDate getFechaNacimiento() {
+     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate FechaNacimiento) {
-        this.fechaNacimiento = FechaNacimiento;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public String getNombre() {
@@ -57,11 +58,11 @@ public class Animal {
         this.peso = peso;
     }
 
-    public String getEstado() {
+    public EstadoAnimal getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(EstadoAnimal estado) {
         this.estado = estado;
     }
 
@@ -70,7 +71,7 @@ public class Animal {
     public void comer(double cantidadGramos) {
         
         cantidadGramos = Math.abs(cantidadGramos);
-        this.estado = "Comiendo";
+        this.estado = EstadoAnimal.COMIENDO;
         this.peso = this.peso + cantidadGramos;
 
     }
@@ -78,21 +79,20 @@ public class Animal {
     //Pone al animal a dormir
     public void dormir() {
 
-        this.estado = "Durmiendo";
+        this.estado = this.estado.DURMIENDO;
 
     }
 
     //Despierta al animal
     public void despertar() {
 
-        this.estado = "Despierto";
-
+       this.estado = this.estado.DESPIERTO;
     }
 
     //Pone el animal a reposar
     public void descansar() {
 
-        this.estado = "Reposando";
+        this.estado = this.estado.DESPIERTO;
 
     }
 
@@ -139,7 +139,7 @@ public class Animal {
             //inicializara a este animal que he creado
             clonar = new Animal(LocalDate.of(2000,
                     Month.MARCH, 28), "Matilde",
-                    "Lagarto", 1000.0, "Durmiendo");
+                    "Lagarto", 1000.0, EstadoAnimal.DURMIENDO);
         }
 
         return clonar;
@@ -153,5 +153,8 @@ public class Animal {
                 + nombre + ", tipo=" + tipo + ", peso=" + peso + ", estado=" +
                 estado + '}';
     }
+
+    
+   
 
 }
